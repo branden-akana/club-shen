@@ -1,0 +1,41 @@
+---
+extra_css:
+  - /rankings/style.css
+---
+
+{% assign rankings = site.data.PlayerRankings %}
+
+<div class="player-ranks">
+
+	<h2 class="title">Player Rankings 2016</h2>
+	<h3 class="subtitle">Super Smash Bros. 4</h3>
+
+	<ul>
+
+	{% for player in rankings %}
+
+		{% assign rank = player.Rank | plus: 0 %}
+
+		{% if rank > 30 %}
+		<li class="player bracket-f">
+		{% elsif rank > 25 %}
+		<li class="player bracket-e">
+		{% elsif rank > 20 %}
+		<li class="player bracket-d">
+		{% elsif rank > 15 %}
+		<li class="player bracket-c">
+		{% elsif rank > 10 %}
+		<li class="player bracket-b">
+		{% else %}
+		<li class="player bracket-a">
+		{% endif %}
+
+			<div class="rank">{{ rank }}</div>
+			<div class="name">{{ player.DisplayName }}</div>
+
+		</li>
+
+	{% endfor %}
+
+	</ul>
+</div>
