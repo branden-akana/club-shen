@@ -13,15 +13,25 @@ init = () ->
 	})
 
 update = (data, tabletop) ->
-	rows = data.rankings.all()
-	bracket = ""
-	for obj in rows
-		if obj.Bracket != "" then bracket = obj.Bracket
-		$( ".player-ranks > ul" ).append """
-			<li class="player bracket-#{ bracket.toLowerCase() }">
+	data = tabletop.sheets("Rankings").toArray()
+	tier = ""
 
-					<div class="rank">#{ obj.Rank }</div>
-					<div class="name">#{ obj.Player }</div>
+	# 0: tier
+	# 1: rank
+	# 2: player
+	for row in data
+		tier = row[0].toLowerCase()
+		rank = row[1]
+		player = row[2]
 
-			</li>
-		"""
+		if tier != "" then @tier = tier
+
+		if player != ""
+			$( ".player-ranks > ul" ).append """
+				<li>
+				<div class="player tier-#{ @tier }">
+						<div class="rank">#{ rank }</div>
+						<div class="name">#{ player }</div>
+				</div>
+				</li>
+			"""

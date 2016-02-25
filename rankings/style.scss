@@ -1,12 +1,11 @@
 ---
 ---
-
-$bracket-a-color: #1ede6b;
-$bracket-b-color: #dedc1e;
-$bracket-c-color: #de9d1e;
-$bracket-d-color: #de241e;
-$bracket-e-color: #b71ede;
-$bracket-f-color: #7d7d7d;
+$tier-s: #ded621;
+$tier-a: #1ede37;
+$tier-b: #1e8dde;
+$tier-c: #de1edc;
+$tier-d: #de241e;
+$tier-e: #b71ede;
 
 .page-content {
 
@@ -43,44 +42,56 @@ $bracket-f-color: #7d7d7d;
 		padding: 0 40px;
 	}
 
+	li {
+		list-style: none;
+	}
+
 	.player {
+
 		$bracket-color: white;
 
-		&.bracket-a {
-			.rank { background: $bracket-a-color; }
-			background: lighten($bracket-a-color, 30%);
-		}
-		&.bracket-b {
-			.rank { background: $bracket-b-color; }
-			background: lighten($bracket-b-color, 30%);
-		}
-		&.bracket-c {
-			.rank { background: $bracket-c-color; }
-			background: lighten($bracket-c-color, 30%);
-		}
-		&.bracket-d {
-			.rank { background: $bracket-d-color; }
-			background: lighten($bracket-d-color, 30%);
-		}
-		&.bracket-e {
-			.rank { background: $bracket-e-color; }
-			background: lighten($bracket-e-color, 30%);
-		}
-		&.bracket-f {
-			.rank { background: $bracket-f-color; }
-			background: lighten($bracket-f-color, 30%);
-		}
-
 		border-radius: 5px;
-
-		list-style: none;
 		margin-bottom: 5px;
 
-		padding: 5px;
+		height: 30px;
+		line-height: 30px;
+
 		background-color: lighten($bracket-color, 50%);
 
+		&.tier-s {
+			background: lighten($tier-s, 30%);
+			.rank { background: $tier-s; }
+			.name { color: darken($tier-s, 50%); }
+		}
+		&.tier-a {
+			background: lighten($tier-a, 30%);
+			.rank { background: $tier-a; }
+			.name { color: darken($tier-a, 50%); }
+		}
+		&.tier-b {
+			background: lighten($tier-b, 30%);
+			.rank { background: $tier-b; }
+			.name { color: darken($tier-b, 50%); }
+		}
+		&.tier-c {
+			background: lighten($tier-c, 30%);
+			.rank { background: $tier-c; }
+			.name { color: darken($tier-c, 50%); }
+		}
+		&.tier-d {
+			background: lighten($tier-d, 30%);
+			.rank { background: $tier-d; }
+			.name { color: darken($tier-d, 50%); }
+		}
+		&.tier-e {
+			background: lighten($tier-e, 30%);
+			.rank { background: $tier-e; }
+			.name { color: darken($tier-e, 50%); }
+		}
+
 		.rank {
-			width: 30px;
+			width: 40px;
+			height: 100%;
 			margin-right: 10px;
 
 			display: inline-block;
@@ -88,7 +99,8 @@ $bracket-f-color: #7d7d7d;
 			color: white;
 			font-weight: bold;
 
-			border-radius: 2px;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
 
 			background: $bracket-color;
 		}
@@ -96,6 +108,8 @@ $bracket-f-color: #7d7d7d;
 		.name {
 			width: auto;
 			display: inline-block;
+			color: rgba(0, 0, 0, 0.75);
+
 			font-weight: bold;
 		}
 
