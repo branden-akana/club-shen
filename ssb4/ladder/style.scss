@@ -9,17 +9,17 @@ $tier-e: #b71ede;
 
 .page-content {
 
-	background: #040604;
-	background-image: url("{{ "/bg.png" | prepend: site.baseurl }}");
-	background-attachment: fixed;
-	background-repeat: no-repeat;
+	//background: #040604;
+	//background-image: url("{{ "/bg.png" | prepend: site.baseurl }}");
+	//background-attachment: fixed;
+	//background-repeat: no-repeat;
 
 
 }
 .player-ranks {
 
 	.title, .subtitle {
-		color: white;
+		color: rgb(221, 221, 221);
 		text-align: center;
 		letter-spacing: 3px;
 	}
@@ -33,9 +33,9 @@ $tier-e: #b71ede;
 		margin-top: 10px;
 	}
 
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(#1d1d1d, 0.9);
 	padding: 20px;
-	border-radius: 10px;
+	border-radius: 2px;
 
 	ul {
 		margin-left: 0;
@@ -59,40 +59,33 @@ $tier-e: #b71ede;
 		background-color: lighten($bracket-color, 50%);
 
 		&.tier-s {
-			background: lighten($tier-s, 30%);
+			background: darken($tier-s, 30%);
 			.rank { background: $tier-s; }
-			.name { color: darken($tier-s, 50%); }
 		}
 		&.tier-a {
-			background: lighten($tier-a, 30%);
+			background: darken($tier-a, 30%);
 			.rank { background: $tier-a; }
-			.name { color: darken($tier-a, 50%); }
 		}
 		&.tier-b {
-			background: lighten($tier-b, 30%);
+			background: darken($tier-b, 30%);
 			.rank { background: $tier-b; }
-			.name { color: darken($tier-b, 50%); }
 		}
 		&.tier-c {
-			background: lighten($tier-c, 30%);
+			background: darken($tier-c, 30%);
 			.rank { background: $tier-c; }
-			.name { color: darken($tier-c, 50%); }
 		}
 		&.tier-d {
-			background: lighten($tier-d, 30%);
+			background: darken($tier-d, 30%);
 			.rank { background: $tier-d; }
-			.name { color: darken($tier-d, 50%); }
 		}
 		&.tier-e {
-			background: lighten($tier-e, 30%);
+			background: darken($tier-e, 30%);
 			.rank { background: $tier-e; }
-			.name { color: darken($tier-e, 50%); }
 		}
 
 		.rank {
 			width: 40px;
 			height: 100%;
-			margin-right: 10px;
 
 			display: inline-block;
 			text-align: center;
@@ -105,12 +98,49 @@ $tier-e: #b71ede;
 			background: $bracket-color;
 		}
 
+		.rank-change {
+			width: 40px;
+			height: 100%;
+
+			margin-left: 10px;
+			display: inline-block;
+			text-align: left;
+			color: rgba(0, 0, 0, 0.5);
+			font-weight: bold;
+		}
+
+		.rank-change__lower {
+			color: rgba(255, 100, 100, 1);
+		}
+
+		.rank-change__raise {
+			color: rgba(100, 255, 100, 1);
+		}
+
+		.rank-change__none {
+			color: rgba(0, 0, 0, 0);
+		}
+
+		.tier {
+			float: right;
+			display: inline-block;
+			text-align: right;
+			margin-right: 20px;
+			color: white;
+			font-weight: bold;
+		}
+
 		.name {
+			width: 150px;
+			display: inline-block;
+			color: rgba(255, 255, 255, 0.9);
+			//font-weight: bold;
+		}
+
+		.games {
 			width: auto;
 			display: inline-block;
-			color: rgba(0, 0, 0, 0.75);
-
-			font-weight: bold;
+			color: rgba(255, 255, 255, 0.4);
 		}
 
 	}
