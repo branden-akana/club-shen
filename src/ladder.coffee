@@ -9,6 +9,41 @@ window.onload = () ->
 Function::property = (prop, desc) ->
 	Object.defineProperty @prototype, prop, desc
 
+slugify = (string) ->
+	return string
+		.toLowerCase()
+		.replace(/[^\w ]+/g, "")
+		.replace(/ +/g, "-")
+
+class Player
+	constructor: (@username, @matches) ->
+		characters = @matches.getCharactersUsed(@username)
+		@characters = []
+		if characters.length == 0 then return
+		counts = {}
+		for character in characters
+			counts[character] = if character of counts then counts[character] + 1 else 1
+		for character, count of counts
+			@characters.push [character, (Math.round(count / characters.length * 100 * 100) / 100)]
+		@characters.sort((a, b) -> b[1] - a[1])
+
+	getRankChange: ->
+		diff = @rank_last - @rank;
+		if diff > 0 then return "+" + diff;
+		else return diff;
+
+	getRating: -> @rating
+	getRank: -> @rank
+	getTier: -> @tier
+	getUsername: -> @username
+	getName: -> @displayname
+	getGamesPlayed: -> @matches.getGamesPlayed(@username)
+	getGamesWon: -> @matches.getGamesWon(@username)
+	getWinStreak: -> @matches.getWinStreak(@username)
+	hasCharacterMain: -> @characters.length != 0
+	getCharacterMain: -> if @characters.length == 0 then "" else @characters[0]
+	getCharacterImage: -> if @characters.length == 0 then "" else "/img/stock/#{ slugify @characters[0][0] }.png"
+
 class Elo
 	@tier: (rating) ->
 		if rating >= 2050 then return "S"
@@ -59,7 +94,22 @@ class Matches
 			else if row[4] == username && row[3] == "Defender" || row[7] == username && row[3] == "Challenger" then games = 0
 		return games
 
-
+	getCharactersUsed: (username) ->
+		characters = []
+		for row in @values
+			if row[4] == username
+				if row[10] != "" then characters.push row[10]
+				if row[14] != "" then characters.push row[14]
+				if row[18] != "" then characters.push row[18]
+				if row[22] != "" then characters.push row[22]
+				if row[26] != "" then characters.push row[26]
+			else if row[7] == username
+				if row[11] != "" then characters.push row[11]
+				if row[15] != "" then characters.push row[15]
+				if row[19] != "" then characters.push row[19]
+				if row[23] != "" then characters.push row[23]
+				if row[27] != "" then characters.push row[27]
+		return characters
 
 class Ladder
 	@players: []
@@ -89,12 +139,13 @@ class Ladder
 			player.rating = row["Rating"]
 			player.rank_last = row["Rank Last"]
 			player.tier = Elo.tier(player.rating)
-
+			console.log player
 			Ladder.players.push player
 
 		for player in Ladder.players
 
-			playerRankChange = player.getRankChange();
+
+			playerRankChange = player.getRankChange()
 
 			if playerRankChange == 0 then rankChangeClass = "rank-change__none"
 			if playerRankChange > 0  then rankChangeClass = "rank-change__raise"
@@ -107,26 +158,11 @@ class Ladder
 						<div class="rank-change #{ rankChangeClass }">#{ player.getRankChange() }</div>
 						<div class="name">#{ player.getName() }</div>
 						<div class="games">#{ player.getGamesPlayed() } Games #{ if player.getWinStreak() > 0 then "(#{ player.getWinStreak() } game win streak)" else "" }</div>
+						#{ if player.hasCharacterMain() then "<div class=\"main\"><img title=\"#{ "Played " + player.getCharacterMain()[1] + "%" }\" src=#{ player.getCharacterImage() } alt=#{ player.getCharacterMain()[0] }></div>" else "" }
 						<div class="tier">#{ player.getTier() }</div>
 				</div>
 				</li>
 			"""
 
-class Player
-	constructor: (@username, @matches) ->
-
-	getRankChange: () ->
-		diff = @rank_last - @rank;
-		if diff > 0 then return "+" + diff;
-		else return diff;
-	getRating: () -> @rating
-	getRank: () -> @rank
-	getTier: () -> @tier
-	getUsername: () -> @username
-	getName: () -> @displayname
-	getGamesPlayed: () -> @matches.getGamesPlayed(@username)
-	getGamesWon: () -> @matches.getGamesWon(@username)
-	getWinStreak: () -> @matches.getWinStreak(@username)
-
 init = () ->
-	Ladder.load("https://docs.google.com/spreadsheets/d/1aNji1A2YqsDZldwpqv-pybWnV4ITKafV8fththQCB2I/pubhtml")
+	Ladder.load "https://docs.google.com/spreadsheets/d/1aNji1A2YqsDZldwpqv-pybWnV4ITKafV8fththQCB2I/pubhtml"
