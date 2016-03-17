@@ -157,9 +157,8 @@ class Ladder
 						<div class="rank">#{ player.getRank() }</div>
 						<div class="rank-change #{ rankChangeClass }">#{ player.getRankChange() }</div>
 						<div class="name">#{ player.getName() }</div>
-						<div class="games">#{ player.getGamesPlayed() } Games #{ if player.getWinStreak() > 0 then "(#{ player.getWinStreak() } game win streak)" else "" }</div>
+						<div class="games">#{ player.getGamesPlayed() } Games</div>
 						#{ if player.hasCharacterMain() then "<div class=\"main\"><img title=\"#{ "Played " + player.getCharacterMain()[1] + "%" }\" src=#{ player.getCharacterImage() } alt=#{ player.getCharacterMain()[0] }></div>" else "" }
-						<div class="tier">#{ player.getTier() }</div>
 				</div>
 				</li>
 			"""

@@ -59,54 +59,62 @@ $tier-e: #b71ede;
 		background-color: lighten($bracket-color, 50%);
 
 		&.tier-s {
-			background: darken($tier-s, 30%);
-			.rank { background: $tier-s; }
+			//background: darken($tier-s, 30%);
+			background-image: url("/img/tier/tier-s.png");
+			//.rank { background: $tier-s; }
 		}
 		&.tier-a {
-			background: darken($tier-a, 30%);
-			.rank { background: $tier-a; }
+			//background: darken($tier-a, 30%);
+			background-image: url("/img/tier/tier-a.png");
+			//.rank { background: $tier-a; }
 		}
 		&.tier-b {
-			background: darken($tier-b, 30%);
-			.rank { background: $tier-b; }
+			//background: darken($tier-b, 30%);
+			background-image: url("/img/tier/tier-b.png");
+			//.rank { background: $tier-b; }
 		}
 		&.tier-c {
-			background: darken($tier-c, 30%);
-			.rank { background: $tier-c; }
+			//background: darken($tier-c, 30%);
+			background-image: url("/img/tier/tier-c.png");
+			//.rank { background: $tier-c; }
 		}
 		&.tier-d {
 			background: darken($tier-d, 30%);
-			.rank { background: $tier-d; }
+			//.rank { background: $tier-d; }
 		}
 		&.tier-e {
 			background: darken($tier-e, 30%);
-			.rank { background: $tier-e; }
+			//.rank { background: $tier-e; }
 		}
 
+
+
 		.rank {
-			width: 40px;
+			width: 80px;
 			height: 100%;
 
 			display: inline-block;
-			text-align: center;
-			color: white;
-			font-weight: bold;
+			text-align: right;
+			line-height: 64px;
+			font-size: 32px;
+			color: #323232;
+			font-weight: 800;
 
-			border-top-left-radius: 5px;
-			border-bottom-left-radius: 5px;
+			overflow: hidden;
 
-			background: $bracket-color;
+			//background: $bracket-color;
 		}
 
 		.rank-change {
 			width: 40px;
 			height: 100%;
 
-			margin-left: 10px;
+			margin-left: 20px;
 			display: inline-block;
 			text-align: left;
 			color: rgba(0, 0, 0, 0.5);
 			font-weight: bold;
+			vertical-align: top;
 		}
 
 		.rank-change__lower {
@@ -131,15 +139,21 @@ $tier-e: #b71ede;
 		}
 
 		.name {
-			width: 150px;
+			width: 200px;
+			line-height: 64px;
+			font-size: 18px;
 			display: inline-block;
 			color: rgba(255, 255, 255, 0.9);
-			//font-weight: bold;
+			font-weight: bold;
+			overflow: hidden;
 		}
 
 		.games {
-			width: 300px;
+			width: 255px;
+			height: 100%;
 			display: inline-block;
+			line-height: 64px;
+			vertical-align: top;
 			color: rgba(255, 255, 255, 0.4);
 		}
 
@@ -148,7 +162,7 @@ $tier-e: #b71ede;
 			width: auto;
 			display: inline-block;
 			color: white;
-			float: right;
+			text-align: right;
 		}
 
 	}
