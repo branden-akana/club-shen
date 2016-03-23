@@ -21,13 +21,18 @@ html, body {
 .page-header {
 
 	height: 50px;
-	background: rgb(41, 41, 41);
+	width: 100%;
+
+	//background: rgb(41, 41, 41);
+	position: fixed;
+	z-index: 1;
 
 	.wrapper {
 
-		width: $width;
+		width: auto;
 		height: 100%;
 		margin: 0 auto;
+		padding: 0px 50px;
 
 		div {
 			display: inline-block;
@@ -43,7 +48,6 @@ html, body {
 			height: 100px;
 			width: 100px;
 			background-image: url("{{ "/logo.png" | prepend: site.baseurl }}");
-			z-index: 1;
 		}
 
 		.title {
@@ -58,13 +62,37 @@ html, body {
 			display: inline-block;
 		}
 
-		.navbar {
+		.navbar--left {
+			display: inline-block;
+			vertical-align: top;
 
-			display: table-cell;
+			a {
+				font-size: 14px;
+			}
+
+			.navbar-item {
+				margin-right: 20px;
+			}
+		}
+
+		.navbar--right {
+			display: inline-block;
+			vertical-align: top;
+			//text-align: right;
 			float: right;
+
+			a {
+				font-size: 24px;
+			}
+
+			.navbar-item {
+				margin-left: 20px;
+			}
+		}
+
+		.navbar {
 			height: 100%;
 			box-sizing: border-box;
-			vertical-align: middle;
 
 			ul {
 				height: 100%;
@@ -76,11 +104,13 @@ html, body {
 			.navbar-item {
 				display: inline-block;
 				padding-top: 6px;
-				margin-left: 10px;
 				vertical-align: top;
 
 				a {
-					font-size: 24px;
+					line-height: 50px;
+					text-transform: uppercase;
+					text-decoration: none;
+					font-weight: bold;
 					color: white;
 				}
 			}
@@ -98,17 +128,33 @@ html, body {
 
 	.background {
 		position: absolute;
-		background-image: url("{{ "/jumbotron.jpg" | prepend: site.baseurl }}");
+		background-image: url("/jumbotron.png");
 		background-color: $color_accent;
+		background-size: cover;
 		width: 100%;
 		height: 500px;
 	}
 
+	.caption-container {
+		width: 100%;
+		height: auto;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 	.caption {
-		width: 800px;
-		margin: 0px auto;
-		padding-top: 200px;
 		color: white;
+
+		width: 800px;
+		height: 250px;
+		margin: 0px auto; // center
+		margin-bottom: 125px;
+
+		background-image: url("/title.png");
+		background-repeat: no-repeat;
+		background-position: center bottom;
+
 		text-align: left;
 		font-size: 48px;
 		font-weight: bold;
