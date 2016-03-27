@@ -151,7 +151,7 @@ class Ladder
 			if playerRankChange > 0  then rankChangeClass = "rank-change__raise"
 			if playerRankChange < 0  then rankChangeClass = "rank-change__lower"
 
-			$( "ul.ladder-rankings" ).append """
+			$( "ul.ladder--rankings" ).append """
 				<li>
 				<div class="player tier-#{ player.getTier().toLowerCase() } rank-#{ player.getRank() } rating-#{ player.getRating() }">
 						<div class="rank">#{ player.getRank() }</div>
@@ -164,4 +164,5 @@ class Ladder
 			"""
 
 init = () ->
+	skrollr.init()
 	Ladder.load "https://docs.google.com/spreadsheets/d/1aNji1A2YqsDZldwpqv-pybWnV4ITKafV8fththQCB2I/pubhtml"

@@ -1,21 +1,60 @@
 ---
 extra_css:
-  - /ssb4/ladder/style.css
+  - /ladder/ssb4/style.css
 extra_js:
   - /src/tabletop.js
   - /src/ladder.js
 ---
 
-<div class="page-content">
-	<div class="wrapper">
-
-		<div class="player-ranks">
-
-			<h2 class="title">Player Rankings 2016</h2>
-			<h3 class="subtitle">Super Smash Bros. 4</h3>
-
-			<ul class="ladder-rankings"></ul> <!-- player rankings inserted here -->
-
+<section id="top"
+	data-start="height: 300px;"
+	data-100-start="height: 60px;"
+>
+	<div class="jumbotron jt--ssb4">
+		<div
+			class="background"
+			data-start="background-position-y: 0px;"
+			data-end="background-position-y: -500px;"
+		>
+			<div class="caption-container"><div class="caption"></div></div>
 		</div>
 	</div>
-</div>
+</section>
+
+<section id="content"
+	data-start="padding-top: 350px;"
+	data-100-start="padding-top: 210px;"
+>
+	<div class="wrapper">
+		<div class="column--left">
+			<img src="/tier-cards.png" alt="">
+		</div>
+		<div class="column--right">
+			<h2>How it Works</h2>
+			<p>
+				<strong>Ranks</strong> are based off how high your <strong>Rating</strong> is. Your <strong>Rating</strong> is a numerical value representing your skill.
+				The ladder is separated into <strong>Tiers</strong> that group together players with similar <strong>Ratings</strong>: S, A, B, and C.
+				The higher your <strong>Tier</strong> is, the faster your <strong>Rating</strong> will change after playing matches.
+			</p>
+			<h2>Rewards</h2>
+			<ul>
+				<li>The Top-5 players on the ladder will be given free entry to any tournament hosted by the Club.</li>
+				<li>The player in 1st place will be given custom art of their main character.</li>
+			</ul>
+			<h2>How to Enter</h2>
+			<p>
+				The price for entry is $5. You may pay this amount to a Club Official.
+				Note that only registered Leeward Community College students may enter.
+
+				New entrants will be given a neutral skill rating. Their rating on the website will be shown after their first three matches.
+			</p>
+		</div>
+	</div>
+</section>
+
+<section id="ladder">
+	<div class="wrapper">
+		<!-- player rankings inserted here -->
+		<ul class="ladder--rankings"></ul>
+	</div>
+</section>

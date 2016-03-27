@@ -1,0 +1,254 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$width: 800px;
+$color_text: #242628;
+$color_accent: rgb(72, 195, 114);
+
+html, body {
+	background: white;
+	margin: 0px; padding: 0px;
+	height: 100%; min-height: 100%;
+	width: 100%; min-width: 100%;
+	font-family: "Open Sans", freesans, sans-serif;
+	font-size: 14px;
+	color: $color_text;
+	line-height: 1.5;
+	letter-spacing: 1px;
+}
+
+.page-header {
+
+	height: 50px;
+	width: 100%;
+
+	//background: rgb(41, 41, 41);
+	position: fixed;
+	z-index: 2;
+
+	.wrapper {
+
+		width: auto;
+		height: 100%;
+		margin: 0 auto;
+		padding: 0px 50px;
+
+		div {
+			display: inline-block;
+
+		}
+
+		.logo {
+			overflow: visible;
+			display: inline-block;
+			box-sizing: border-box;
+			margin-top: -25px;
+			margin-left: -25px;
+			height: 100px;
+			width: 100px;
+			background-image: url("{{ "/logo.png" | prepend: site.baseurl }}");
+		}
+
+		.title {
+			margin-top: 8px;
+			margin-left: 20px;
+			font-size: 20px;
+			letter-spacing: 3px;
+			vertical-align: top;
+			text-transform: uppercase;
+			color: white;
+			font-weight: bold;
+			display: inline-block;
+		}
+
+		.navbar--left {
+			display: inline-block;
+			vertical-align: top;
+
+			a {
+				font-size: 14px;
+			}
+
+			.navbar-item {
+				margin-right: 20px;
+			}
+		}
+
+		.navbar--right {
+			display: inline-block;
+			vertical-align: top;
+			//text-align: right;
+			float: right;
+
+			a {
+				font-size: 24px;
+			}
+
+			.navbar-item {
+				margin-left: 20px;
+			}
+		}
+
+		.navbar {
+			height: 100%;
+			box-sizing: border-box;
+
+			ul {
+				height: 100%;
+				display: inline-block;
+				list-style-type: none;
+				padding: 0px; margin: 0px;
+			}
+
+			.navbar-item {
+				display: inline-block;
+				padding-top: 6px;
+				vertical-align: top;
+
+				a {
+					line-height: 50px;
+					text-transform: uppercase;
+					text-decoration: none;
+					font-weight: bold;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+#top {
+	position: fixed;
+	width: 100%;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.jumbotron {
+
+	p {
+		margin: 0px;
+	}
+
+	.background {
+		position: absolute;
+		background-size: cover;
+		width: 100%;
+		height: inherit;
+	}
+
+	&.jt--home {
+
+		height: 500px;
+
+		.background {
+			background-image: url("/jumbotron.jpg");
+			background-color: $color_accent;
+		}
+
+		.caption {
+			background-image: url("/title.png");
+			margin-bottom: 125px;
+		}
+	}
+
+	&.jt--ssb4 {
+
+		height: 300px;
+
+		.background {
+			background-image: url("/jt_cyan.jpg");
+			background-color: rgb(57, 196, 215);
+		}
+
+		.caption {
+			background-image: url("/title_ssb4_ladder_spring2016.png");
+			margin-bottom: 75px;
+		}
+	}
+
+	.caption-container {
+		width: 100%;
+		height: auto;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	.caption {
+		color: white;
+
+		width: auto;
+		height: 250px;
+		margin: 0px auto; // center
+
+		background-repeat: no-repeat;
+		background-position: center bottom;
+
+		text-align: left;
+		font-size: 48px;
+		font-weight: bold;
+	}
+
+}
+
+#content {
+
+	padding-top: 50px;
+	min-height: 100%;
+
+	h2 {
+		text-transform: uppercase;
+		font-size: 16px;
+		font-weight: 800;
+		color: rgb(16, 52, 38);
+	}
+
+	p, ul {
+		color: #7a8b7d;
+		margin-bottom: 100px;
+	}
+
+	.wrapper {
+
+		width: $width;
+		margin: 0 auto;
+
+	}
+
+	.stream-window {
+
+		text-align: center;
+
+	}
+
+}
+
+#contact {
+
+	box-sizing: border-box;
+	display: block;
+
+	footer {
+		background-image: url("/footer.jpg");
+		background-repeat: no-repeat;
+
+		color: #bfbfbf;
+
+		padding-top: 50px;
+		padding-bottom: 100px;
+		position: relative;
+		display: block;
+		box-sizing: border-box;
+		vertical-align: baseline;
+
+		.row {
+			width: 800px;
+			margin: 0 auto;
+		}
+
+	}
+
+}

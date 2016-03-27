@@ -7,16 +7,45 @@ $tier-c: #de1edc;
 $tier-d: #de241e;
 $tier-e: #b71ede;
 
-.page-content {
+#content {
 
 	//background: #040604;
 	//background-image: url("{{ "/bg.png" | prepend: site.baseurl }}");
 	//background-attachment: fixed;
 	//background-repeat: no-repeat;
-
+	min-height: auto;
+	.column--left {
+		display: inline-block;
+		width: 200px;
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
+	}
+	.column--right {
+		width: 550px;
+		padding-left: 50px;
+		display: inline-block;
+		float: right;
+	}
 
 }
-.player-ranks {
+
+#ladder {
+
+	display: inline-block;
+	height: 3000px;
+	width: 100%;
+	overflow: hidden;
+
+	background: rgba(#202020, 1);
+	padding: 20px;
+	//border-radius: 2px;
+
+	.ladder--rankings {
+		width: 680px;
+		margin: 0 auto;
+	}
 
 	.title, .subtitle {
 		color: rgb(221, 221, 221);
@@ -32,10 +61,6 @@ $tier-e: #b71ede;
 		font-size: 20px;
 		margin-top: 10px;
 	}
-
-	background: rgba(#1d1d1d, 0.9);
-	padding: 20px;
-	//border-radius: 2px;
 
 	ul {
 		margin-left: 0;
@@ -86,8 +111,6 @@ $tier-e: #b71ede;
 			background: darken($tier-e, 30%);
 			//.rank { background: $tier-e; }
 		}
-
-
 
 		.rank {
 			width: 80px;
