@@ -19,6 +19,98 @@ html, body {
 	letter-spacing: 1px;
 }
 
+#sign-in-button {
+	background-color: white;
+	font-size: 14px;
+	color: #01A361;
+	text-transform: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+
+	&.signed-in {
+		background-color: transparent;
+		padding: 3px 8px;
+		box-shadow: 0 0 0 2pt white;
+		color: white;
+	}
+}
+
+.match-list {
+	.match {
+		background-color: #444444;
+		box-shadow: 0 2px 3px 1px #c8c8c8;
+		border-radius: 2px;
+		line-height: 14px;
+		color: #c1c1c1;
+		margin-bottom: 5px;
+
+		.match--title {
+			display: inline-block;
+			vertical-align: middle;
+			width: 50%;
+
+			.player {
+				display: inline-block;
+				font-size: 14px;
+				font-weight: bolder;
+				padding: 8px 8px;
+				margin: 0px 5px;
+				border-radius: 5px;
+
+				&.player--0 {
+					color: #d59b4c;
+					width: 120px;
+				}
+
+				&.player--1 {
+					color: #42a7d1;
+				}
+			}
+		}
+
+		.match--games {
+			display: inline-block;
+			vertical-align: middle;
+			width: 50%;
+			padding-right: 10px;
+			box-sizing: border-box;
+
+			.game {
+				display: inline-block;
+				float: right;
+				height: 16px;
+
+				.winner {
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					border-radius: 8px;
+					margin: 0px 5px;
+
+					&.winner--0 {
+						background-color: #d59b4c;
+						box-shadow: inset 0px -4px 8px #deab66;
+					}
+
+					&.winner--1 {
+						background-color: #42a7d1;
+						box-shadow: inset 0px -4px 8px #6cc1e3;
+					}
+
+					&.winner--null {
+						background-color: #656565;
+						box-shadow: inset 0px 1px 4px #575757;
+					}
+				}
+			}
+		}
+
+
+
+
+	}
+}
+
 .page-header {
 
 	height: 50px;
