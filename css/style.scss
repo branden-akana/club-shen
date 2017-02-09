@@ -248,7 +248,7 @@ html, body {
 
 	&.jt--ssb4 {
 
-		height: 300px;
+		height: 400px;
 
 		.background {
 			background-image: url("/jt_cyan.jpg");
@@ -256,8 +256,9 @@ html, body {
 		}
 
 		.caption {
-			background-image: url("/title_ssb4_ladder_spring2016.png");
-			margin-bottom: 75px;
+			background-image: url("/img/titles/ssb4-sp2017.png");
+			margin-bottom: 40px;
+			height: 300px;
 		}
 	}
 
@@ -278,6 +279,7 @@ html, body {
 
 		background-repeat: no-repeat;
 		background-position: center bottom;
+		overflow: visible;
 
 		text-align: left;
 		font-size: 48px;
