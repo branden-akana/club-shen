@@ -4,7 +4,7 @@
 @charset "utf-8";
 
 $width: 800px;
-$color_text: #242628;
+$color_text: #323537;
 $color_accent: rgb(72, 195, 114);
 
 html, body {
@@ -16,7 +16,7 @@ html, body {
 	font-size: 14px;
 	color: $color_text;
 	line-height: 1.5;
-	letter-spacing: 1px;
+	letter-spacing: 0.7px;
 }
 
 #sign-in-button {
@@ -301,8 +301,8 @@ html, body {
 	}
 
 	p, ul {
-		color: #7a8b7d;
-		margin-bottom: 100px;
+		color: #323537;
+		margin-bottom: 20px;
 	}
 
 	.wrapper {
